@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>user profile page</title>
+<link rel="stylesheet" href="styles.css">
+<style type="text/css">
+        body {
+            background-color: #f8b72c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .phone-container {
+            position: relative;
+        }
+
+        .phone-container::before {
+            content: "+60";
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #000;
+        }
+
+        .phone-container input {
+            padding-left: 40px;
+        }
+
+        .address-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .address-container input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 1px;
+            width: 300px;
+        }
+
+        input[type=button], input[type=submit] {
+            background-color: #ff4400;
+            color: white;
+            width: 200px;
+            padding: 10px;
+            border: 2px solid #ff4400;
+            cursor: pointer;
+        }
+        
+        input[type=button]:hover, input[type=submit]:hover {
+            opacity: 0.8;
+        }
+
+        .form-group {
+            margin-top: 0px;
+        }
+
+        .change-password {
+            color: #274ea9;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .change-password:hover {
+            color: #ff4400;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <p>Name:</p>
+        <p>
+            <input type="text" size="25" maxlength="30" placeholder="First Name">
+            <input type="text" size="25" maxlength="30" placeholder="Last Name">
+        </p>
+
+        <p>Birthday:</p>
+        <p>
+            <input type="date" name="mem_birthda" max="2024-12-31">
+        </p>
+
+        <p>Contact Number:</p>
+        <p class="phone-container">
+            <input type="text" placeholder="Phone Number" size="19" maxlength="30">
+        </p>
+
+        <p>Email:</p>
+        <p>
+            <input type="text" size="25" maxlength="30">
+        </p>
+
+        <p>Address:</p>
+        <div class="address-container">
+            <input type="text" placeholder="House Number" maxlength="10">
+            <input type="text" placeholder="Building" maxlength="10">
+            <input type="text" placeholder="Street Name" maxlength="50">
+            <input type="text" placeholder="Postal Code" maxlength="10">
+        </div>
+
+        <p class="change-password" onclick="handleChangePassword()">Change Password</p>
+            <input type="button" name="editbtn" value="Edit" />
+            <input type="button" name="editbtn" value="Back" />
+        </p>
+    </div>
+</body>
+</html>

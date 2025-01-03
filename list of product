@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>user profile page</title>
+<link rel="stylesheet" href="styles.css">
+<style type="text/css">
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.product-box {
+    width: calc(33.33% - 10px);
+    border: 3px solid orange;
+    margin: 1px;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+}
+
+.product-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.product-title {
+    position: absolute;
+    top: -30px; 
+    left: 0;
+    width: 100%;
+    text-align: left;
+    color: black;
+    padding-left: 20px; 
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 8px;
+    margin: 5px;
+    padding: 20px;
+    width: calc(25% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 1em;
+    color: #461717;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    width: 160px;
+    text-align: center;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: 80px;
+    cursor: pointer;
+}
+
+li:hover {
+    color: red;
+}
+
+.product-section {
+    display: none;
+    cursor: pointer;
+}
+
+#returnButton {
+        background-color: #ff4400;
+        color: white;
+        width: 200px;
+        padding: 10px;
+        border: 2px solid #ff4400;
+        cursor: pointer;
+        position: fixed;
+        bottom: 30px;
+        right: 20px;
+    }
+
+#returnButton:hover {
+    opacity: 0.8;}
+</style>
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var returnButton = document.getElementById('returnButton');
+        if (returnButton) {
+            returnButton.addEventListener('click', function() {
+                location.href = 'index.html'; 
+            });
+        } else {
+            console.log('Return button not found');
+        }
+    });
+    function showSection(sectionId) {
+        var sections = document.getElementsByClassName('product-section');
+        for (var i = 0; i < sections.length; i++) {
+            sections[i].style.display = 'none';
+        }
+        document.getElementById(sectionId).style.display = 'block';
+    
+        var beefMealsSection = document.getElementById('beef-meals-section');
+        if (beefMealsSection) {
+            beefMealsSection.style.display = 'none';
+        }
+    
+        var chickenMealsSection = document.getElementById('chicken-meals-section');
+        if (chickenMealsSection) {
+            chickenMealsSection.style.display = 'none';
+        }
+    
+        var lambMealsSection = document.getElementById('lamb-meals-section');
+        if (lambMealsSection) {
+            lambMealsSection.style.display = 'none';
+        }
+    }
+</script>
+</head>
+<body>
+
+<h1>Category</h1>
+<ul>
+    <li onclick="showSection('beef-burger-section')"><img src="Beef Burger/beef burger.jpg">Beef Burger</li>
+    <li onclick="showSection('chicken-burger-section')"><img src="chicken meals/Chicken Burger/chicken burger.jpgA">Chicken Burger</li>
+    <li onclick="showSection('lamb-burger-section')"><img src="Lamb Burger/lamb burger.jpg">Lamb Burger</li>
+    <li onclick="showSection('side-dishes-section')"><img src="Side Dishes/french fries2.jpg">Side Dishes</li>
+    <li onclick="showSection('beverages-section')"><img src="Beverages/chocolate smoothy.jpg">Beverages</li>
+</ul>
+<div id="beef-meals-section">
+    <h1>Beef Meals</h1>
+    <div class="product-grid">
+        <div class="product-box">
+            <div id="menu-image"><img src="beef meals/beef burger meals.jpg"></div>
+            <div id="menu-desc">Cheese Crispy Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="beef meals/beef cheese meals.jpg"></div>
+            <div id="menu-desc">Cheese Spicy Crispy Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="beef meals/beef double special meals.jpg"></div>
+            <div id="menu-desc">Chicken Burger Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="chicken meals/crispy chicken meals.jpg"></div>
+            <div id="menu-desc">Crispy Chicken Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="chicken meals/spicy crispy meals.jpg"></div>
+            <div id="menu-desc">Spicy Crispy Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+    </div>
+</div>
+
+<div id="chicken-meals-section">
+    <h1>Chicken Meals</h1>
+    <div class="product-grid">
+        <div class="product-box">
+            <div id="menu-image"><img src="chicken meals/cheese crispy meals.jpg"></div>
+            <div id="menu-desc">Cheese Crispy Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="chicken meals/cheese spicy crispy meals.jpg"></div>
+            <div id="menu-desc">Cheese Spicy Crispy Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="chicken meals/chicken burger meals.jpg"></div>
+            <div id="menu-desc">Chicken Burger Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="chicken meals/crispy chicken meals.jpg"></div>
+            <div id="menu-desc">Crispy Chicken Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="chicken meals/spicy crispy meals.jpg"></div>
+            <div id="menu-desc">Spicy Crispy Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+    </div>
+</div>
+
+<div id="lamb-meals-section">
+    <h1>Lamb Meals</h1>
+    <div class="product-grid">
+        <div class="product-box">
+            <div id="menu-image"><img src="lamb meals/cheese lamb meals.jpg"></div>
+            <div id="menu-desc">Cheese Lamb Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="lamb meals/double special lamb meals.jpg"></div>
+            <div id="menu-desc">Double Special Lamb Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="lamb meals/lamb burger meals 1.jpg"></div>
+            <div id="menu-desc">Lamb Burger Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="lamb meals/lamb special meals.jpg"></div>
+            <div id="menu-desc">Lamb Special Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="lamb meals/lamb spicy meals.jpg"></div>
+            <div id="menu-desc">Lamb Spicy Meals</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+    </div>
+</div>
+
+<div id="beef-burger-section" class="product-section">
+    <h1>Beef Burger</h1>
+    <div class="product-grid">
+        <div class="product-box">
+            <div id="menu-image"><img src="Beef Burger/beef burger.jpg"></div>
+            <div id="menu-desc">Beef Burger</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Beef Burger/beef cheese burger.jpg"></div>
+            <div id="menu-desc">Beef Cheese Burger</div>
+            <div class="product-price">Price: $YY.YY</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Beef Burger/beef special burger.jpg"></div>
+            <div id="menu-desc">Beef Burger Special</div>
+            <div class="product-price">Price: $ZZ.ZZ</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Beef Burger/beef triple special.jpg"></div>
+            <div id="menu-desc">Beef Triple Special</div>
+            <div class="product-price">Price: $AA.AA</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Beef Burger/double special beef burger.jpg"></div>
+            <div id="menu-desc">Beef Burger Double Special</div>
+            <div class="product-price">Price: $BB.BB</div>
+        </div>
+    </div>
+</div>
+
+<div id="chicken-burger-section" class="product-section">
+    <h1>Chicken Burger</h1>
+    <div class="product-grid">
+        <div class="product-box">
+            <div id="menu-image"><img src="Chicken Burger/chicken burger.jpg"></div>
+            <div id="menu-desc">Chicken Burger</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Chicken Burger/cheese crispy chicken.jpg"></div>
+            <div id="menu-desc">Cheese Crispy Chicken</div>
+            <div class="product-price">Price: $YY.YY</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Chicken Burger/cheese spicy crispy.jpg"></div>
+            <div id="menu-desc">Cheese Spicy Crispy</div>
+            <div class="product-price">Price: $ZZ.ZZ</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Chicken Burger/spicy crispy chicken.jpg"></div>
+            <div id="menu-desc">Spicy Crispy Chicken</div>
+            <div class="product-price">Price: $AA.AA</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Chicken Burger/crispy chicken burger.jpg"></div>
+            <div id="menu-desc">Crispy Chicken Burger</div>
+            <div class="product-price">Price: $AA.AA</div>
+        </div>
+    </div>
+</div>
+
+<div id="lamb-burger-section" class="product-section">
+    <h1>Lamb Burger</h1>
+    <div class="product-grid">
+        <div class="product-box">
+            <div id="menu-image"><img src="Lamb Burger/lamb burger.jpg"></div>
+            <div id="menu-desc">Lamb Burger</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Lamb Burger/cheese lamb burger.jpg"></div>
+            <div id="menu-desc">Cheese Lamb Burger</div>
+            <div class="product-price">Price: $YY.YY</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Lamb Burger/double special lamb.jpg"></div>
+            <div id="menu-desc">Double Special Lamb</div>
+            <div class="product-price">Price: $ZZ.ZZ</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Lamb Burger/lamb special.jpg"></div>
+            <div id="menu-desc">Lamb Special</div>
+            <div class="product-price">Price: $AA.AA</div>
+        </div>
+    </div>
+</div>
+
+<div id="side-dishes-section" class="product-section">
+    <h1>Side Dishes</h1>
+    <div class="product-grid">
+        <div class="product-box">
+            <div id="menu-image"><img src="Side Dishes/french fries.jpg"></div>
+            <div id="menu-desc">French Fries</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Side Dishes/french fries2.jpg"></div>
+            <div id="menu-desc">French Fries 2</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Side Dishes/hotdogs.jpg"></div>
+            <div id="menu-desc">Hotdogs</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Side Dishes/mushroom soup.jpg"></div>
+            <div id="menu-desc">Mushroom Soup</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Side Dishes/nugget.jpg"></div>
+            <div id="menu-desc">Nugget</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Side Dishes/onion rings.jpg"></div>
+            <div id="menu-desc">Onion Rings</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+        <div class="product-box">
+            <div id="menu-image"><img src="Side Dishes/potato wedges.jpg"></div>
+            <div id="menu-desc">Potato Wedges</div>
+            <div class="product-price">Price: $XX.XX</div>
+        </div>
+    </div>
+</div>
+
+    <div id="beverages-section" class="product-section">
+        <h1>Beverages</h1>
+        <div class="product-grid">
+            <div class="product-box">
+                <div id="menu-image"><img src="Beverages/100plus.jpg"></div>
+                <div id="menu-desc">100 Plus</div>
+                <div class="product-price">Price: $XX.XX</div>
+            </div>
+            <div class="product-box">
+                <div id="menu-image"><img src="Beverages/7up.jpg"></div>
+                <div id="menu-desc">7 Up</div>
+                <div class="product-price">Price: $XX.XX</div>
+            </div>
+            <div class="product-box">
+                <div id="menu-image"><img src="Beverages/chocolate smoothy.jpg"></div>
+                <div id="menu-desc">Chocolate Smoothy</div>
+                <div class="product-price">Price: $XX.XX</div>
+            </div>
+            <div class="product-box">
+                <div id="menu-image"><img src="Beverages/cola.jpg"></div>
+                <div id="menu-desc">Cola</div>
+                <div class="product-price">Price: $XX.XX</div>
+            </div>
+            <div class="product-box">
+                <div id="menu-image"><img src="Beverages/fanta.jpg"></div>
+                <div id="menu-desc">Fanta</div>
+                <div class="product-price">Price: $XX.XX</div>
+            </div>
+            <div class="product-box">
+                <div id="menu-image"><img src="Beverages/ice lemon tea.jpg"></div>
+                <div id="menu-desc">Ice Lemon Tea</div>
+                <div class="product-price">Price: $XX.XX</div>
+            </div>
+            <div class="product-box">
+                <div id="menu-image"><img src="Beverages/lipton.jpg"></div>
+                <div id="menu-desc">Lipton Ice Tea</div>
+                <div class="product-price">Price: $XX.XX</div>
+            </div>
+            <div class="product-box">
+                <div id="menu-image"><img src="Beverages/sprite.jpg"></div>
+                <div id="menu-desc">Sprite</div>
+                <div class="product-price">Price: $XX.XX</div>
+            </div>
+            <div class="product-box">
+                <div id="menu-image"><img src="Beverages/strawberry smoothy.jpg"></div>
+                <div id="menu-desc">Strawberry Smoothy</div>
+                <div class="product-price">Price: $XX.XX</div>
+            </div>
+            <div class="product-box">
+                <div id="menu-image"><img src="Beverages/watermelon smoothy.jpg"></div>
+                <div id="menu-desc">Watermelon Smoothy</div>
+                <div class="product-price">Price: $XX.XX</div>
+            </div>
+        </div>
+    </div>
+   
+    <button id="returnButton">Return</button>
+</body>
+</html>
+        
+
+    
+    

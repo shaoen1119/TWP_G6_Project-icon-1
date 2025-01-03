@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment Page</title>
+<link rel="stylesheet" href="styles.css">
+<style type="text/css">
+
+.payment-container h2 {
+    margin-top: 0;
+}
+.payment-method {
+    margin-bottom: 20px;
+    font-size: 24px; /* 增大字体 */
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc; 
+    width: 100%; 
+    text-align: left;
+    display: flex;
+    justify-content: space-between; /* 在文本和箭头之间留出空间 */
+    align-items: center; /* 垂直居中对齐 */
+    cursor: pointer; /* 添加鼠标指针效果 */
+}
+.payment-method:last-child {
+    border-bottom: none; 
+}
+.arrow {
+    width: 16px; /* 设置箭头图片的宽度 */
+    height: auto; /* 保持图片的纵横比 */
+}
+.hidden {
+    display: none;
+}
+.payment-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.payment-container button {
+    width: 100%;
+    padding: 10px;
+    background-color:#ff4400;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.payment-container button:hover {
+    background-color:#ff4400;
+}
+</style>
+</head>
+<body>
+    <div class="payment-container">
+        <div id="payment-methods">
+            <h2>Payment Method</h2>
+            <div class="payment-method" onclick="showCreditDebitCard()">
+                Credit/Debit Card
+                <img src="Icon/next page.png" class="arrow">
+            </div>
+            <div class="payment-method" onclick="showTNG()">
+                Touch 'n Go (TNG)
+                <img src="Icon/next page.png" class="arrow">
+            </div>
+        </div>
+        <div id="credit-debit-card" class="hidden">
+            <h2>Credit/Debit Card Payment</h2>
+            <input type="text" placeholder="Card Number">
+            <input type="text" placeholder="Card Holder Name">
+            <input type="text" placeholder="Expiry Date">
+            <input type="text" placeholder="CVV">
+            <button onclick="goBack()">Pay Now</button>
+        </div>
+        <div id="tng" class="hidden">
+            <h2>Touch 'n Go Payment</h2>
+            <p>Total Amount: RM100.00</p>
+            <button onclick="goBack()">Proceed</button>
+        </div>
+    </div>
+
+    <script>
+        function showCreditDebitCard() {
+            document.getElementById('payment-methods').classList.add('hidden');
+            document.getElementById('credit-debit-card').classList.remove('hidden');
+        }
+
+        function showTNG() {
+            document.getElementById('payment-methods').classList.add('hidden');
+            document.getElementById('tng').classList.remove('hidden');
+        }
+
+        function goBack() {
+            document.getElementById('credit-debit-card').classList.add('hidden');
+            document.getElementById('tng').classList.add('hidden');
+            document.getElementById('payment-methods').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
